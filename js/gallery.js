@@ -89,4 +89,17 @@ imagesContainer.addEventListener("click", (event) => {
   event.preventDefault();
 
   if (event.target.nodeName !== "IMG") return;
+
+  const bigImageUrl = event.target.dataset.source;
+  console.log(bigImageUrl);
+
+  const instance = basicLightbox.create(
+    `
+    <img src="${bigImageUrl}" width="1112" height="640">
+  `,
+    {
+      className: "custom-modal",
+    }
+  );
+  instance.show();
 });
